@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour {
     float interval;
 
     public GameObject enemyBullet;
+
+    public GameObject explosion;
 	// Use this for initialization
 	void Start () {
         interval = 0;
@@ -32,5 +34,14 @@ public class EnemyController : MonoBehaviour {
         Instantiate(enemyBullet, new Vector3(transform.position.x - 1, transform.position.y, transform.position.z - 2), q1);
         Instantiate(enemyBullet, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z - 2), q2);
 
+    }
+    void OnTriggerEnter(Collider coll)
+    {
+        if(coll.gameObject.tag == "PlayerBullet")
+        {
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+            Destroy(coll.gameObject);
+        }
     }
 }

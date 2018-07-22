@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour {
     public GameObject enemy;
     float enemynterval;
 
+    public GameObject explosion;
+
 	// Use this for initialization
 	void Start () {
         bulletInterval = 0.0f;
@@ -91,5 +93,14 @@ public class PlayerController : MonoBehaviour {
 
         Instantiate(enemy, new Vector3(transform.position.x, transform.position.y, transform.position.z + 200), q);
 
+    }
+    void OnTriggerEnter(Collider coll)
+    {
+        if(coll.gameObject.tag == "EnemyBullet")
+        {
+            Instantiate(explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            Destroy(gameObject);
+            Destroy(coll.gameObject);
+        }
     }
 }
