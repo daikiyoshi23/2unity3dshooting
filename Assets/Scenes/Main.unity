@@ -306,6 +306,7 @@ MonoBehaviour:
   speedX: 2
   speedZ: 2
   bullet: {fileID: 1981124918679148, guid: 8f6482d604333de41b81aa1cf22cb04c, type: 2}
+  enemy: {fileID: 1990220566432246, guid: 78f9f663abb3f9b47afe1f15cd8f91d9, type: 2}
 --- !u!1001 &790774014
 Prefab:
   m_ObjectHideFlags: 0
