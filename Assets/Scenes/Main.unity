@@ -517,3 +517,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b1fa7bf777ff049a2388964e2c34b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 1477624167747524, guid: a22a038ff799e7247aaae3e76d3a849d,
+    type: 2}
