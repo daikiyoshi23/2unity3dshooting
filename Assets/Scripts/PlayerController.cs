@@ -9,9 +9,14 @@ public class PlayerController : MonoBehaviour {
     public GameObject bullet;
     float bulletInterval;
 
+    public GameObject enemy;
+    float enemynterval;
+
 	// Use this for initialization
 	void Start () {
-        bulletInterval = 0;
+        bulletInterval = 0.0f;
+
+        enemynterval = 0.0f;
 	}
 	
 	// Update is called once per frame
@@ -44,6 +49,11 @@ public class PlayerController : MonoBehaviour {
                 GenerateBullet();
             }
         }
+        enemynterval += Time.deltaTime;
+        if(enemynterval >= 0.5f)
+        {
+            GenerateEnemy();
+        }
 	}
 
     void MoveToUp(float vertical)
@@ -70,5 +80,16 @@ public class PlayerController : MonoBehaviour {
     {
         bulletInterval = 0.0f;
         Instantiate(bullet, transform.position, Quaternion.identity);
+    }
+
+    void GenerateEnemy()
+    {
+        Quaternion q = Quaternion.Euler(0, 180, 0);
+        enemynterval = 0.0f;
+
+        Instantiate(enemy, new Vector3(Random.Range(-100, 100), transform.position.y, transform.position.z + 200), q);
+
+        Instantiate(enemy, new Vector3(transform.position.x, transform.position.y, transform.position.z + 200), q);
+
     }
 }
