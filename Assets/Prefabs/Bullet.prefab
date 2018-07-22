@@ -57,7 +57,7 @@ MonoBehaviour:
   takeVelocityZFromParent: 0
   velocityZ: 40
   lifeTime: 10
-  haveToCollide: 1
+  haveToCollide: 0
   haveToInstantiateSomthingOnHit: 1
   toInstantiateOnHit: {fileID: 188626, guid: 37529a8d3a3aaf7498b62309b1c015ab, type: 2}
   haveToAssignTemporaryMaterialToHittedObject: 0
