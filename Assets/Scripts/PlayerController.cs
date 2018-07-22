@@ -114,6 +114,9 @@ public class PlayerController : MonoBehaviour {
             if (playerLife <= 0)
             {
                 Destroy(gameObject);
+
+                ScoreController obj = GameObject.Find("Main Camera").GetComponent<ScoreController>();
+                obj.SaveHighScore();
             }
             
         }
