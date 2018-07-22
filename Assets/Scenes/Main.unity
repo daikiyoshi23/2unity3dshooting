@@ -305,6 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedX: 2
   speedZ: 2
+  bullet: {fileID: 1981124918679148, guid: 8f6482d604333de41b81aa1cf22cb04c, type: 2}
 --- !u!1001 &790774014
 Prefab:
   m_ObjectHideFlags: 0

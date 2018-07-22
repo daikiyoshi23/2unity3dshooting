@@ -6,10 +6,12 @@ public class PlayerController : MonoBehaviour {
 
     public float speedX;
     public float speedZ;
+    public GameObject bullet;
+    float bulletInterval;
 
 	// Use this for initialization
 	void Start () {
-		
+        bulletInterval = 0;
 	}
 	
 	// Update is called once per frame
@@ -33,6 +35,15 @@ public class PlayerController : MonoBehaviour {
         {
             MoveToBack(vertical);
         }
+
+        bulletInterval += Time.deltaTime;
+        if (Input.GetKey("space"))
+        {
+            if(bulletInterval >= 0.2f)
+            {
+                GenerateBullet();
+            }
+        }
 	}
 
     void MoveToUp(float vertical)
@@ -53,5 +64,11 @@ public class PlayerController : MonoBehaviour {
     void MoveToBack(float vertical)
     {
         transform.Translate(0, 0, vertical * speedZ);
+    }
+
+    void GenerateBullet()
+    {
+        bulletInterval = 0.0f;
+        Instantiate(bullet, transform.position, Quaternion.identity);
     }
 }
