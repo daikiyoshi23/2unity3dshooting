@@ -42,6 +42,9 @@ public class EnemyController : MonoBehaviour {
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
             Destroy(coll.gameObject);
+
+            ScoreController obj = GameObject.Find("Main Camera").GetComponent<ScoreController>();
+            obj.ScorePlus();
         }
     }
 }
