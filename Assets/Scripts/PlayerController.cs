@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -14,11 +15,18 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject explosion;
 
+    Slider slider;
+    int playerLife;
+
 	// Use this for initialization
 	void Start () {
         bulletInterval = 0.0f;
 
         enemynterval = 0.0f;
+
+        playerLife = 3;
+
+        slider = GameObject.Find("Slider").GetComponent<Slider>();
 	}
 	
 	// Update is called once per frame
@@ -98,9 +106,16 @@ public class PlayerController : MonoBehaviour {
     {
         if(coll.gameObject.tag == "EnemyBullet")
         {
+            playerLife--;
+
+            slider.value = playerLife;
             Instantiate(explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-            Destroy(gameObject);
             Destroy(coll.gameObject);
+            if (playerLife <= 0)
+            {
+                Destroy(gameObject);
+            }
+            
         }
     }
 }
